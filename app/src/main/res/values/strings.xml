@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SCBTest</string>
+    <string name="article_image">article image</string>
+    <string name="check_as_favorite">Check article as favorite</string>
+    <string name="favorites">Favorites</string>
+    <string name="retry">Retry</string>
+    <string name="error">An error occurred while loading</string>
+</resources>

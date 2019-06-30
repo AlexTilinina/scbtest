@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <data>
+       <variable
+           name="article"
+           type="ru.itis.kpfu.scbtest.ui.article.ArticleViewModel"/>
+   </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_source"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            tools:text="test source name 123456"
+            android:text="@{article.source}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            tools:text="test author name 123456"
+            android:text="@{article.author}"
+            android:layout_below="@id/tv_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_fav"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/ic_favorite_full_black"
+            android:onClick="@{() -> article.onFavoriteClick()}"
+            android:src="@{safeUnbox(article.isFavorite) ? @drawable/ic_favorite_full_black : @drawable/ic_favorite_empty_black}"
+            android:contentDescription="@string/check_as_favorite"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_below="@id/tv_author"
+            tools:text="test title very very long 12323534536 textttt ttttttttttttttttttttt tttttttttttt ttttttttttttttttttt"
+            android:text="@{article.title}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_below="@id/tv_title"
+            tools:text="test desc very very long 12323534536 texttt ttttttttttttttttttt ttttttttttttttttttttt ttttttttttttt"
+            android:text="@{article.description}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_below="@id/tv_description"
+            tools:text="urllll"
+            android:text="@{article.url}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_below="@id/tv_url"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:src="@{article.urlToImage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/article_image"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_below="@id/iv_photo"
+            tools:text="date"
+            android:text="@{article.publishedAt}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_below="@id/tv_date"
+            tools:text="contenttttttttt"
+            android:text="@{article.content}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</layout>

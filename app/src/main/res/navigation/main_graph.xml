@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_graph"
+    app:startDestination="@id/sourceListFragment">
+    <fragment android:id="@+id/sourceListFragment"
+        android:name="ru.itis.kpfu.scbtest.ui.sourcelist.SourceListFragment"
+        android:label="SourceListFragment">
+        <action android:id="@+id/action_sourceListFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment"/>
+        <action android:id="@+id/action_sourceListFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/articleListFragment"
+        android:name="ru.itis.kpfu.scbtest.ui.articlelist.ArticleListFragment"
+        android:label="ArticleListFragment">
+        <action android:id="@+id/action_articleListFragment_to_articleFragment"
+            app:destination="@id/articleFragment"/>
+        <action android:id="@+id/action_articleListFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/articleFragment"
+        android:name="ru.itis.kpfu.scbtest.ui.article.ArticleFragment"
+        android:label="ArticleFragment">
+        <action android:id="@+id/action_articleFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/favoriteListFragment"
+        android:name="ru.itis.kpfu.scbtest.ui.favorites.FavoriteListFragment"
+        android:label="FavoriteListFragment">
+        <action android:id="@+id/action_favoriteListFragment_to_articleFragment"
+            app:destination="@id/articleFragment"/>
+    </fragment>
+</navigation>
